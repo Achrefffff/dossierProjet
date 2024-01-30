@@ -1,0 +1,626 @@
+INTRODUCTION
+1. Compétences du référentiel couvertes par le projet
+----------------------------------------------------
+a. Développer la partie front-end d’une application web en intégrant les recommandations de sécurité:
+- Réaliser une interface utilisateur web statique et adaptable
+- Développer une interface utilisateur web dynamique
+
+L'application web a été développée en utilisant React, offrant une adaptabilité aux diverses tailles d'écrans, garantissant une expérience utilisateur cohérente . Bien que l'application ait été initialement conçue pour le web, sa mise en page réactive assure une convivialité optimale, même sur des écrans plus petits tels que ceux des appareils mobiles.
+Ainsi, bien que l'application soit principalement destinée à une utilisation sur le web, elle offre également une expérience utilisateur agréable sur des écrans plus compacts, préservant la facilité d'utilisation quel que soit le dispositif utilisé.
+
+b. Développer la partie back-end d’une application webouwebmobile en intégrant les recommandations de sécurité:
+- Créer une base de données
+- Développer les composants d’accès aux données
+- Développer la partie back-end d’une application web ou web mobile
+
+La composante front-end de l'application communique de manière transparente avec une API robuste, conçue et implémentée pour récupérer des données à partir d'une base de données relationnelle. Cette API, créée avec Node.js et le framework Express.js, repose sur Sequelize comme ORM (Object-Relational Mapping) pour assurer une interaction efficace avec la base de données SQL. L'utilisation de Sequelize simplifie la gestion des requêtes et des relations dans la base de données, tandis que Node.js et Express.js offrent une base solide pour le développement d'une API performante.
+
+2. Résumé du projet
+-------------------
+Mon projet consiste en une application dédiée à un bar à cocktails. Cette application offre une plateforme conviviale permettant aux visiteurs de découvrir la variété des cocktails proposés par le bar, ainsi que les différentes formules disponibles. 
+Le site présente également des informations sur le bar.
+Du côté administrateur, l'application offre des fonctionnalités de gestion complètes. 
+L'administrateur peut ajouter, supprimer et modifier des cocktails, gérer les formules proposées, ainsi que prendre en charge les réservations. 
+En résumé, l'application vise à offrir une vitrine interactive pour les visiteurs tout en fournissant des outils de gestion pratiques pour l'équipe administrative du bar à cocktails.
+
+3. Environnement humain et technique
+------------------------------------
+a. Environnement humain Environnement technique 
+
+Durant la réalisation de mon projet, j'ai assumé pleinement la responsabilité de l'ensemble du processus de développement de manière individuelle. Ce défi a exigé un engagement total et une compréhension approfondie de chaque aspect du projet. Travaillant avec un ordinateur portable et bénéficiant d'une connexion internet stable, j'ai surmonté les difficultés rencontrées de manière autonome, démontrant ainsi ma capacité à mener un projet de A à Z.
+
+LE PROJET 
+
+1. Le cahier des charges
+------------------------
+*** introduction
+1.1 Contexte
+L'objectif de ce projet est de développer une application dédiée à un bar à cocktails, fournissant une interface interactive pour les visiteurs et des outils de gestion complets pour l'administration.
+
+1.2 Objectif
+Concevoir une plateforme conviviale permettant aux visiteurs de découvrir la variété des cocktails et des formules du bar. Du côté administrateur, l'application doit permettre la gestion efficace des cocktails, des formules et des réservations.
+
+*** Fonctionnalités du Site pour les Visiteurs
+2.1 Présentation des Cocktails
+- Affichage détaillé des cocktails avec images, nom,descriptions
+
+2.2 Découverte des Formules
+- Présentation claire des différentes formules disponibles avec prix.
+
+2.3 Informations sur le Bar
+- Section fournissant des détails sur l'emplacement, l'histoire et l'équipe du bar.
+
+***3. Fonctionnalités d'Administration
+3.1 Gestion des Cocktails
+- Ajout, modification et suppression de cocktails.
+- Téléchargement d'images pour chaque cocktail.
+
+3.2 Gestion des Formules
+- Possibilité d'ajouter, modifier et supprimer des formules.
+- Association des cocktails à chaque formule.
+
+3.3 Gestion des Réservations
+- Vue d'ensemble des réservations en temps réel.
+-Ajout, modification et suppression des reservation
+
+***4. Design et Expérience Utilisateur
+4.1 Interface Conviviale
+- Design moderne et attrayant.
+- Navigation intuitive.
+
+4.2 Responsive Design
+- Adaptable à différentes tailles d'écrans pour une expérience utilisateur optimale.
+
+***5. Technologie et Sécurité
+5.1 Stack Technologique
+- Utilisation de technologies web modernes (React, Node.js, SQL).
+- Intégration de mesures de sécurité pour protéger les données sensibles.
+
+5.2 Bonnes Pratiques de Sécurité
+- Prévention des attaques courantes (injections SQL, Cross-Site Scripting).
+
+Ce cahier des charges vise à établir une base solide pour le développement de l'application, en alignement avec les besoins et les objectifs du bar à cocktails.
+
+2. Spécifications techniques
+----------------------------
+
+Pour ce projet j ai utilisé une combinaison de technologies. 
+Du côté du développement front-end, j'ai exploité React, une bibliothèque JavaScript créée par Facebook, qui m'a permis de construire une interface utilisateur dynamique et réactive. L'utilisation de Git a efficacement les versions de mon code
+ Pour tester et valider les interactions avec l'API pendant le processus de développement, j'ai utilisé l'outil Postman, offrant une facilité d'utilisation pour les tests et le débogage.
+ Du côté du développement back-end, j'ai opté pour Node.js, un environnement d'exécution JavaScript côté serveur, en combinaison avec le framework Express.js.
+ Cette combinaison a permis la création rapide et efficace de serveurs et d'API robustes. 
+En ce qui concerne la gestion de la base de données, j'ai utilisé Sequelize, un ORM compatible avec Node.js, offrant une interface conviviale pour interagir avec la base de données relationnelle via des modèles JavaScript. En résumé, cette approche technologique diversifiée a permis une communication entre  front-end et le back-end, garantissant le succès du projet.
+
+LA REALISATION DU PROJET 
+
+1. Conception de la base de données
+------------------------------------
+
+La modélisation des données est une étape importante dans le développement d'une application. 
+Elle consiste à définir la structure de la base de données qui va contenir les données de l'application.
+**IMAGE(uummll)**
+--relation many to many entre les entités cocktails et formules:
+La relation many-to-many entre cocktails et formules est représentée par une table intermédiaire, c est une association.
+ Dans ce cas c est la table ''formulecocktails''  qui contient deux clés étrangères : cocktailId et formuleId. La cocktailId fait référence à la clé primaire de la table Cocktail,
+et la formuleId fait référence à la clé primaire de la table Formule.
+la cardinalité 0..* de deux côtés indique une relation où aucune instance de l'une ou l'autre entité n'est obligatoire,
+ mais où des associations multiples peuvent être établies des deux côtés
+
+--relation many to one entre les entitées users et cocktails:
+ la relation entre les entités Users et Cocktails est représentée par la cardinalité 0..* du coté cocktail et 1 du coté utilisateur
+Cela signifie qu'un User peut ne peut pas un cocktail ou créer un ou plusieurs Cocktails, mais qu'un Cocktail ne peut être créé que par un seul User.
+En d'autres termes, un User est le créateur d'un Cocktail. 
+Cela signifie que le User est responsable de la création du Cocktail, et qu'il est le seul à pouvoir modifier ou supprimer le Cocktail.
+Dans cette entité, la colonne user_id de la table Cocktails est une clé étrangère qui fait référence à la clé primaire de la table Users.
+Une fois l'élaboration de la structure de la base de données terminée, j'ai procédé au développement de la partie back, afin de générer dans un premier temps, la base de données 
+
+2. Développement de l’API
+-------------------------
+a. Installation
+
+J'ai  créé un dossier''back'' dans lequel j'ai lancé la commande npm init qui initialise un projet
+en créant le fichier package.json, qui contient les informations du projet : le nom, la version, la description, le fichier qui sera le point d'entrée, lerepository git associé, des mots-clés, l'auteur et la licence.
+ Node.js étant déjà installé sur mon ordinateur,j'ai pu passer à l'installation de:
+ * express oui est un framework pour Node.js qui fournit des outils et fonctionnalités pour construire des API de manière rapide et facile. 
+    Il simplifie le routage, la gestion des requêtes et réponses, et inclut des middlewares pour gérer des tâches courantes.
+*nodemon qui est un utilitaire qui redémarre automatiquement le serveur Node.js lorsque des modifications de fichier sont détectées dans le répertoire du projet, 
+    ce qui facilite le développement en évitant de redémarrer manuellement le serveur à chaque modification.
+*CORS  (Cross-Origin Resource Sharing) est un module Node.js qui fournit un middleware pour activer le partage de ressources entre des origines multiples, 
+    ce qui permet aux clients d'accéder à mon API à partir de différents domaines.
+*Sequelize qui  est un ORM (Object-Relational Mapping) pour Node.js qui permet de gérer les bases de données SQL de manière simple  
+    en utilisant des objets et des méthodes JavaScript au lieu de requêtes SQL brutes.
+
+b. Initialisation du projet
+Une fois l'installation de toutes les librairies effectuée, j'ai créé la base de données locale"cocktail" en utilisant phpMyAdmin.
+aprés j'ai créé un fichier .env qui contient notamment les variables nécessaires 
+à la connexion à la base de données : le host, l'utilisateur, le mot de passe, lenomde la base de données, ainsi que le port utilisé.
+J'ai installé  la libraire « dotenv » grâce à la commande : "npm install dotenv " puis son import dans le fichier server.js (qui sera le point
+d'entrée) nous permet d'accéder aux variables situées dans le fichier .env depuis n'importe où, avec : process.env.[nom_de_la_variable]
+**IMAGE(varBD) **
+
+Aprés j ai crée "db.config.js" et j ai importé "sequelize" elle est responsable de la création et de la gestion des connexions à une base de données.
+ ensuite j ai créér l'objet "Sequelize" qui contiendra les paramètres nécessaires à la connexion à la base de données pendant le développement.
+**IMAGE(cnxBD)**
+
+Enfin dans le fichier "server.js"  la méthode DB.sequelize.authenticate() est appelée pour vérifier la connexion à la base de données. 
+Si la connexion est réussie, la méthode console.log() affiche le message "Database connection OK".
+Ensuite, si la connexion à la base de données est réussie, la méthode app.listen() est appelée pour démarrer le serveur sur le port spécifié.
+La méthode (callback) => console.log(le serveur is running sur le port ${process.env.SERVER_PORT}. Have fun !) 
+est fournie comme rappel qui s'exécute une fois que le serveur est démarré.
+Ce rappel affiche un message indiquant que le serveur est en cours d'exécution sur le port spécifié.
+Si la connexion à la base de données échoue, la méthode catch capture l'erreur et la affiche dans la console
+**IMAGE(runServe)** 
+Le serveur est prêt à être lancé, grâce à la commande npm run dev
+**IMAGE(serveOk)**
+
+c. Développement de la base de données
+Pour le développement de la base de données j ai décidé de créer un dossier que j ai nommé "models" qui contient les modéles de la base de données.
+
+**IMAGE(mdCocktail)**
+Ce code définit un modèle Sequelize qui représente la table des cocktails dans la base de données. 
+Le modèle définit les champs suivants :
+
+id: Un identifiant unique pour chaque cocktail (type INTEGER, auto-incrémentatif).
+user_id: L'identifiant de l'utilisateur qui a créé le cocktail (type INTEGER, peut être NULL).
+nom: Le nom du cocktail (type STRING, longueur maximale de 100 caractères, ne peut pas être NULL).
+description: La description du cocktail (type TEXT, valeur par défaut vide, ne peut pas être NULL).
+recette: La recette du cocktail (type TEXT, valeur par défaut vide, ne peut pas être NULL).
+photo: Le chemin vers l'image du cocktail (type STRING, peut être NULL).
+Le paramètre paranoid: true indique que le modèle doit conserver les données supprimées pendant un certain temps pour faciliter la restauration.
+
+**IMAGE(mdUser)
+Ici un modèle Sequelize User qui représente la table des utilisateurs dans la base de données. 
+Le modèle définit les champs suivants :
+
+id: Un identifiant unique pour chaque utilisateur (type INTEGER, auto-incrémentatif).
+nom: Le nom de famille de l'utilisateur (type STRING, longueur maximale de 100 caractères, ne peut pas être NULL).
+prenom: Le prénom de l'utilisateur (type STRING, longueur maximale de 100 caractères, ne peut pas être NULL).
+pseudo: Le nom d'utilisateur de l'utilisateur (type STRING, longueur maximale de 100 caractères, ne peut pas être NULL).
+email: L'adresse e-mail de l'utilisateur (type STRING, validé avec la méthode isEmail: true).
+password: Le mot de passe de l'utilisateur (type STRING, 64 caractères de long, validé pour correspondre à l'expression régulière /^[0-9a-f]{64}$/i).
+Le mot de passe est crypté à l'aide de la bibliothèque bcrypt avant d'être stocké dans la base de données. 
+Cela permet de protéger les mots de passe des utilisateurs contre les attaques de piratage.
+
+**IMAGE(mdFormules)**
+Ici un modèle Sequelize  Formule qui représente la table des formules dans la base de données. 
+Le modèle définit les champs suivants :
+
+id: Un identifiant unique pour chaque formule (type INTEGER, auto-incrémentatif).
+prix: Le prix de la formule (type FLOAT, ne peut pas être NULL).
+text: Une description de la formule (type STRING, longueur maximale de 255 caractères, peut être NULL).
+Le modèle Formule est lié à plusieurs modèles Cocktail via une table intermédiaire nommée FormuleCocktails. 
+Cela signifie qu'une formule peut être liée à plusieurs cocktails, et un cocktail peut être lié à plusieurs formules.
+En résumé, ce code définit un modèle de formule standard avec les champs de base nécessaires pour créer et gérer des formules dans une application. 
+Le champ prix est requis pour chaque formule, tandis que la description est facultative.
+
+Aprés j ai continué a crée les autres modéles nécessaires pour la base de données et enfin dans le dossier "db.config.js"
+j ai  définit un objet "db" qui contient des références aux différents modèles Sequelize créés précédemment. 
+Plus précisément, il contient les références suivantes :
+
+sequelize: La connexion à la base de données créée précédemment.
+User: Le modèle User pour gérer les utilisateurs dans la base de données.
+Cocktail: Le modèle Cocktail pour gérer les cocktails dans la base de données.
+apropos: Le modèle 'apropos' pour gérer les informations à propos du bar dans la base de données.
+reservation: Le modèle 'reservation' pour gérer les réservations dans la base de données.
+formules: Le modèle 'formules' pour gérer les formules dans la base de données.
+Et j ai aussi  définit  des relations entre les modèles User et Cocktail,la relation hasMany indique qu'un utilisateur peut avoir plusieurs cocktails associés à son compte, 
+tandis que la relation belongsTo indique qu'un cocktail appartient à un utilisateur spécifique.
+Enfin, je synchronise la base de données avec les modèles définis en utilisant le paramètre alter: true, ce qui permet de créer ou mettre à jour les tables nécessaires dans la base de données
+si elles n'existent pas ou nécessitent des modifications structurelles.
+Et la base de donnés est prete .
+**IMAGE(dbConfComplet)**
+
+d. Développement des routers et controllers
+
+La base de données créer,j'ai pu commencer à développer les controllers qui vont me permettre d'accéder aux données stockées dans la base de données. 
+J'ai donc créé undossier"controllers", dans lequel j'ai créé un fichier pour chaque entité qui sera concernée par les requêtes.
+J'ai effectué la même opération en créant un dossier "routes" qui lui, contiendra un fichier pour chaque entité dans lequel seront précisées les routes, 
+c'est-à-dire les différentes URL auxquelles seront renvoyées les réponses des requêtes contenues dans les fichiers controllers.
+++ Par exemple, voici le controller "cocktail.js" qui contient toutes les requêtes concernant les cocktails
+**IMAGE(ctrlCocktail)**
+ici je  définit deux fonctions qui permettent de récupérer des informations sur les cocktails à partir de la base de données.
+La première fonction, "getAllCocktails()", récupère tous les cocktails de la base de données 
+et les renvoie sous la forme d'un objet JSON. 
+La deuxième fonction, "getCocktail",
+récupère un cocktail spécifique en fonction de son identifiant et le renvoie sous la forme d'un objet JSON.
+Les deux fonctions utilisent le modèle Cocktail pour accéder aux données de la base de données. 
+La fonction "getAllCocktails()" utilise la méthode findAll() pour récupérer tous les cocktails, 
+et la fonction getCocktail utilise la méthode findOne() pour récupérer un seul cocktail.
+Les deux fonctions incluent également le modèle User dans les requêtes pour récupérer les informations sur l'utilisateur qui a créé le cocktail,
+Cela permet de renvoyer les informations sur l'utilisateur, telles que son identifiant, son email et son pseudo, dans la réponse JSON.
+Les deux fonctions asyncrone grace à "async" ,utilisent des blocs try-catch pour gérer les erreurs,Si une erreur se produit lors de l'accès aux données de la base de données,
+les fonctions renvoient une réponse JSON avec un message d'erreur.
+
+Ensuite, dans le router "cocktails.js" qui dans le dossier routes qui cotient les autres routers , j'ai créé une route, accessible avec la méthode "GET", qui
+accède au résultat de la requête effectuée par la fonction "getAllCocktails()", pareille pour  "getCocktail()"
+**IMAGE(routeCocktail)**
+ Ici je  définit deux routes pour les cocktails :
+La route GET /cocktails récupère tous les cocktails de la base de données et les renvoie au format JSON.
+La route GET /cocktails/:id récupère un seul cocktail en fonction de son identifiant et le renvoie au format JSON.
+
+Ainsi, en précisant dans le fichier server.js
+**IMAGE(noname)**
+++ Un autre exemple le controller "formules.js"  qui contient  toutes les requêtes concernant les formules
+**IMAGE(ctrlFormules)**
+ici La fonction "createFormule()" gère la création de l entité "Formule" avec des données fournies dans la requête HTTP. 
+Les données essentielles comprennent le texte, le prix et l'identifiant du cocktail associé.
+ Avant de procéder à la création de la formule, la fonction vérifie la présence de ces données et renvoie une réponse d'erreur si elles sont manquantes.
+En cas de données valides, la fonction crée une nouvelle formule en utilisant le modèle "Formule". 
+Ensuite, elle associe les cocktails spécifiés par les identifiants à cette formule. 
+Pour garantir l'intégrité des données, la fonction récupère ensuite la formule fraîchement créée avec les détails complets des cocktails associés en effectuant une requête de recherche enrichie avec la clause include. 
+la réponse HTTP renvoyée contient un message de succès et les données de la formule nouvellement créée, y compris les détails des cocktails associés,
+ grace à la relation many to many entre les modèles formules et cocktails.
+Enfin en cas d'erreur pendant le processus, la fonction génère une réponse d'erreur serveur (statut 500) avec un message explicatif, 
+tout en enregistrant l'erreur dans la console à des fins de débogage. 
+Cette structure globale garantit une gestion appropriée des erreurs et une communication claire des résultats de l'opération de création de formule.
+
+Ensuite dans le router 'formules.js' dans le dossier routes , accessible avec la methode POST.
+**IMAGE(routeFormule)**
+Ici j ai définit une route POST associée à la fonction createFormule du contrôleur formuleCtrl.
+Lorsqu'une requête HTTP POST est reçue à cette route spécifique, la fonction createFormule sera appelée pour traiter la demande, gérer la création d'une nouvelle formule,
+ et renvoyer une réponse appropriée.
+Ainsi , en présicant dans le fichier server.js
+**IMAGE(noname2)**
+
+3. Développement de la partie front-end
+---------------------------------------
+a.Creation des maquettes:
+Pour amorcer le processus de conception, j'ai initié la phase de zoning en utilisant un stylo et du papier, 
+esquissant ainsi une vue globale de l'apparence souhaitée du site pour un bar à cocktails.
+ Cette étape préliminaire m'a permis de réfléchir à la disposition générale des éléments sur l'interface, 
+ définissant des zones distinctes pour le contenu principal, la navigation et d'autres éléments essentiels.
+ Passant ensuite à la réflexion sur la palette de couleurs,
+  j'ai opté pour une combinaison audacieuse de rose et de noir.
+   Ce choix vise à évoquer une ambiance sophistiquée et moderne en accord avec l'atmosphère d'un bar à cocktails.
+   <<charteG>>
+La création de la charte graphique a ensuite été cruciale,
+ établissant des directives précises pour l'utilisation cohérente des couleurs, des polices et des éléments visuels tout au long du site.
+  Cette charte constitue un référentiel essentiel pour garantir une identité visuelle uniforme et reconnaissable.
+L'utilisation de Figma, un outil que j'admire pour sa puissance et sa polyvalence, a marqué la transition vers la création de mockups. 
+À travers cet outil, j'ai pu donner vie à la conception en intégrant des éléments visuels concrets tels que des logos, des images,
+ et des boutons interactifs. 
+ <<maquetta>>
+En resumé La maquette constitue ainsi un outil central dans la réalisation du site, 
+servant de référence visuelle pour les développeurs et garantissant la concrétisation fidèle de la vision initiale du bar à cocktails.
+
+
+b. Mise en place de l’environnement de développement
+L'environnement de développement que j ai choisi est une combinaison de technologies populaires et éprouvées pour créer des applications React.
+J'ai installé Create React App (CRA) qui est un outil officiel de l'équipe React qui permet de créer rapidement et facilement une application React.
+Il fournit une configuration prête à l'emploi pour les outils et les bibliothèques les plus couramment utilisés, notamment Babel et Jest.
+J'ai installé Bootstrap qui est une bibliothèque de composants CSS et JavaScript qui fournit une base pour la création d'interfaces utilisateur réactives et responsives.
+Elle est très populaire et est utilisée par de nombreuses applications React.
+
+J ai installé Axios qui est une bibliothèque HTTP qui permet d'effectuer des requêtes HTTP de manière simple et efficace.
+ Elle est souvent utilisée pour communiquer avec les API REST.
+
+J ai installé React Router DOM qui est une bibliothèque qui permet de créer des applications React avec une navigation à plusieurs pages.
+ Elle est essentielle pour créer des applications un peu complexes qui nécessitent plusieurs pages.
+Voici quelques explications supplémentaires sur les choix que vous avez faits :
+Pour justifier mes choix concernant cet environnement de développement je dirait que Create React App est un bon choix  pour les débutants qui souhaitent créer une application React rapidement et facilement. 
+Il fournit une configuration prête à l'emploi qui  évite de devoir configurer manuellement les outils et les bibliothèques nécessaires.
+Bootstrap est un choix populaire pour les applications React qui nécessitent une interface utilisateur réactive et responsive.
+ elle fournit un ensemble complet de composants CSS et JavaScript qui peuvent être utilisés pour créer des interfaces utilisateur élégantes et fonctionnelles.
+Axios est un choix judicieux pour les applications React qui nécessitent d'effectuer des requêtes HTTP. 
+elle est simple à utiliser et fournit un large éventail de fonctionnalités, notamment la gestion des erreurs, le cache et les requêtes asynchrones.
+Enfin Je pense que l'environnement de développement que j ai choisi est un excellent point de départ pour créer des applications React de qualité.
+
+b.Conception de l'application cote Front
+**IMAGE(conception1.drawio)**
+La phase de conception et de planification est la phase la plus importante du processus de création d'un site Web. 
+Cette phase consiste à définir les objectifs du site Web, et à créer un plan pour la mise en œuvre des routes .
+
+c. Route et navigation au sein de l’application
+
+Les routes dans la partie front est à trois niveaux, avec des routes pour l'espace public, l'espace d'administration
+ et l'espace d'authentification.
+
+L'espace public est accessible à tous les utilisateurs, sans authentification. 
+Il contient des routes pour la page d'accueil, la page de reservation, etc.
+
+L'espace d'administration est accessible uniquement aux administrateurs authentifiés. 
+Il contient des routes pour la gestion des utilisateurs, des cocktails, etc.
+
+L'espace d'authentification permet aux utilisateurs de se connecter.
+J ai un dossier pages qui contient trois sous-dossiers, admin, auth et public et chaque sous-dossier contient un fichier Route
+ qui définit les routes pour l'espace correspondant.
+
+Comme ca j ai pu faire un bon point de départ pour créer une application React bien organisé et facile à comprendre.
+Par exemple voici le composant "adminRouter"
+**IMAGE(adminRouter)**
+Le composant "AdminRouter"  définit les routes pour la section administration de l'application. 
+avec react-router-dom pour définir des routes pour le tableau de bord, les utilisateurs, les cocktails, à propos, les réservations et les formules. 
+Il définit également une route catch-all pour tous les autres chemins
+
+**IMAGE(app.js)**
+Le fichier App.js est le point de départ de l'application pour définir les routes globales de l'application.
+++Pages Publiques: /home /reservation /contact 
+++Pages Login: /auth/login 
+++Pages Admin: /admin/dashboard /admin/user /index /edit /add /delete /admin/cocktail /index /edit /add /delete 
+et ainsi de suite pour les  autres routes de l'admin.
+
+e. Expemples d'écrans développés :
+1/ le Composant "Home.js"
+Le composant Home est une page d'accueil qui utilise le hook useEffect pour récupérer la liste des cocktails depuis le service cocktailService dès que le composant est monté.
+Les cocktails sont affichés dans une disposition de cartes avec leurs images, noms, descriptions et recettes.
+Un bouton "RESERVER MAINTENANT !" est inclus, permettant à l'utilisateur de naviguer vers la page de réservation en utilisant le hook useNavigate de React Router.
+Enfin, le composant intègre des éléments visuels, tels qu'une section "About", un en-tête "Main", et un pied de page "Footer", contribuant à la structure et au style de la page d'accueil.
+**IMAGE(home1)**
+ici j ai utilisé le hook useState de react pour gérer l'état local, notamment la liste des cocktails, initialisée à un tableau vide.
+aprés le hook useEffect est employé pour déclencher une action asynchrone dès que le composant est monté.
+ Dans ce cas, il appelle le service "cocktailService" pour récupérer tous les cocktails.
+ **IMAGE(cocktailService)**
+la fonction "getAllCocktails()"  utilise le service Axios pour effectuer une requête HTTP GET vers l'endpoint '/cocktails' 
+afin de récupérer la liste complète des cocktails depuis le serveur.
+Une fois la requête résolue avec succès, la liste de cocktails est extraite de la réponse (res.data.data) et mise à jour dans l'état local à l'aide de la fonction setCocktails.
+Les erreurs éventuelles sont capturées par le bloc catch et affichées dans la console.
+Cette structure assure le chargement initial des cocktails dès le rendu du composant, 
+offrant une expérience utilisateur fluide en affichant dynamiquement les données récupérées.
+Concernant le rendu pour le style j ai utilisé des classes Bootstrap pour garantir une page responsive pour une variété de dispositifs et de tailles d'écrans.
+Pour l affichage des Cocktails avec leurs images
+**IMAGE(accueil)** && **IMAGE(accueilResp1)*** **IMAGE(accueilResp2)***
+
+2/Le Composant "Formule.js"
+le composant "Formule.js" définit une une fonction qui utilise les hooks useState et useEffect pour gérer l'état local et effectuer une action asynchrone lors du montage du composant.
+L'état local formules est utilisé pour stocker la liste des formules, qui est récupérée en appelant le service formuleService.getAllFormules() via une requête HTTP GET dans la fonction useEffect.
+"Formule.js" rend une interface utilisateur avec une liste de formules affichée dans un tableau.
+Chaque ligne du tableau représente une formule avec des colonnes pour l'ID, le prix, le texte, la liste des cocktails associés, 
+ainsi que des liens pour la modification et la suppression. 
+Les icônes de la bibliothèque FontAwesome sont utilisées pour les boutons d'édition (faEdit) et de suppression (faTrashAlt).
+Un bouton d'ajout de formule est également présent, redirigeant l'utilisateur vers la page d'ajout de formule lorsqu'il est cliqué. 
+La fonction delFormule est définie pour supprimer une formule en utilisant le service formuleService.deleteFormule, mettant à jour l'état local pour refléter les changements.
+En résumé, ce composant React offre une vue dynamique et interactive pour afficher, ajouter, éditer et supprimer des formules, en interagissant avec un backend à travers des services dédiés.
+**IMAGE(delFormule)**
+Dans ce code j ai utilisé  Le hook useEffect  pour effectuer une action asynchrone lors du montage du composant,
+en l'occurrence, pour récupérer toutes les formules depuis le serveur en utilisant le service formuleService.getAllFormules().
+Lorsque la promesse de cette requête HTTP est résolue avec succès, la fonction de rappel then est exécutée. 
+Elle affiche les données reçues dans la console à des fins de débogage (console.log('Données reçues:', res.data.data)) et met à jour l'état local formules en utilisant la fonction setFormules,
+cela a pour effet de réassigner la liste de formules avec celles récupérées depuis le serveur.
+En parallèle, une fonction" delFormule() "est définie pour supprimer une formule en utilisant le service formuleService.deleteFormule(formuleId).
+Lorsque la suppression réussit, la liste locale de formules est mise à jour en filtrant l'élément correspondant à l'ID de la formule supprimée. 
+Cela est réalisé en utilisant la méthode filter qui crée un nouveau tableau excluant l'élément dont l'ID correspond à celui de la formule supprimée.
+Les erreurs éventuelles lors des requêtes HTTP sont capturées par la méthode catch et affichées dans la console à des fins de débogage. 
+Globalement, ce code est responsable de l'initialisation de l'état local avec les données des formules,
+ ainsi que de la gestion de la suppression d'une formule avec mise à jour de l'état local en conséquence.
+ **IMAGE(formuleReturn)**
+ Cet partie du code définit l'interface utilisateur pour afficher une liste de formules dans un tableau. 
+ La structure JSX retourne une div principale avec une en-tête h2 indiquant "Formule liste". 
+ Le bouton "Ajouter une formule" redirige l'utilisateur vers la page d'ajout de formule lorsque cliqué.
+La table est utilisée pour organiser les données des formules avec une structure tabulaire.
+ Les entêtes de colonnes comprennent les champs tels que "Id", "Prix", "Texte", "Cocktails", "Modifier", et "Supprimer". 
+ Les données des formules sont mappées dans le corps de la table en utilisant la méthode map sur la liste des formules récupérée précédemment.
+Chaque ligne du tableau (élément <tr>) représente une formule, avec des cellules (éléments <td>) pour chaque propriété de la formule, tels que l'ID, le prix, le texte, et la liste de cocktails associés.
+ La liste de cocktails est rendue à l'intérieur d'une cellule en utilisant une nouvelle itération avec map pour afficher chaque nom de cocktail dans une balise <span>.
+  Cela crée une séquence de noms de cocktails séparés par des virgules.
+Deux colonnes additionnelles sont réservées pour les actions "Modifier" et "Supprimer".
+L'action "Modifier" est un lien (<Link>) qui redirige l'utilisateur vers la page d'édition de la formule correspondante en utilisant le composant Link de React Router.
+ L'action "Supprimer" est représentée par une icône de poubelle de FontAwesome, avec un événement onClick déclenchant la fonction "delFormule()" lorsqu'elle est cliquée.
+Globalement, ce composant offre une présentation visuelle des formules avec des fonctionnalités d'édition et de suppression interactives, en interagissant avec le backend à travers les services dédiés.
+
+3/ Le composant FormuleAdd.js
+Le composant "FormuleAdd" démontre une mise en œuvre d'une interface utilisateur pour l'ajout de nouvelles formules. 
+Ce composant utilise les hooks useState et useEffect pour gérer l'état local, notamment les données de la nouvelle formule, la liste des cocktails disponibles, et les cocktails sélectionnés.
+Les données des cocktails sont récupérées depuis le serveur via le service cocktailService lors du montage du composant.
+Le formulaire offre la possibilité de saisir le prix et le texte de la formule, ainsi que la sélection de plusieurs cocktails à partir d'une liste déroulante. 
+Les changements dans le formulaire sont gérés par des fonctions telles que onChange et onSelectCocktail. 
+Des mécanismes de validation sont mis en place pour s'assurer que tous les champs nécessaires sont remplis avant de soumettre le formulaire, avec un affichage approprié des erreurs le cas échéant.
+Lors de la soumission du formulaire, les données sont préparées, puis envoyées au serveur via le service formuleService. 
+En cas de succès, l'utilisateur est redirigé vers la page principale.
+ Les erreurs éventuelles sont gérées de manière appropriée, avec des messages d'erreur affichés pour informer l'utilisateur.
+Dans l'ensemble,ce composant reflète le développement frontend, mettant en œuvre des fonctionnalités interactives, des validations ,
+ et une gestion  des états locaux pour créer une expérience utilisateur fluide et efficace.
+ **IMAGE(formuleAdd1)**
+ce code illustre une implémentation pour l'ajout de nouvelles formules dans une application web.
+Le code utilise les hooks React, notamment useState, useEffect, et useNavigate pour gérer l'état local et la navigation.
+ La récupération des données des cocktails depuis le serveur est réalisée de manière asynchrone avec le service cocktailService à l'aide du hook useEffect.
+La fonction onChange est définie pour mettre à jour dynamiquement l'état local formule à chaque modification d'un champ du formulaire, garantissant une expérience utilisateur réactive.
+ De même, la fonction onSelectCocktail gère la sélection multiple des cocktails à partir d'une liste déroulante, mettant à jour l'état local avec les cocktails sélectionnés.
+L'étape de soumission du formulaire, réalisée par la fonction onSubmit, inclut une validation des champs requis tels que le prix, le texte, et au moins un cocktail sélectionné.
+ En cas de non-respect des critères de validation, un message d'erreur est affiché. Si la validation est réussie, les données du formulaire sont préparées dans un objet formData,
+  et la fonction formuleService.addFormule est utilisée pour envoyer les données au serveur.
+   En cas de succès, l'utilisateur est redirigé vers la page principale de l'application.
+L'utilisation de console.log pour afficher les données à envoyer dans la console facilite le suivi et le débogage du processus d'ajout. 
+Les erreurs éventuelles sont capturées lors de la communication avec le serveur, assurant une gestion appropriée des problèmes et une expérience utilisateur robuste.
+Dans l'ensemble, ce composant reflète les pratiques de développement frontend, une gestion des états, et une interaction fluide avec le serveur 
+pour assurer la fiabilité et la réactivité de la fonctionnalité d'ajout de formules.
+**IMAGE(formuleAddReturn)**
+Cet partie du composant FormuleAdd, constitue une interface utilisateur pour l'ajout de nouvelles formules.
+La page présente un formulaire comprenant des champs pour le prix, le texte, ainsi qu'une liste déroulante permettant de sélectionner plusieurs cocktails.
+Le formulaire est enveloppé dans une div avec la classe 'FormuleAdd', où le titre "Formule ajout" est affiché.
+Le formulaire intègre une gestion  des états grâce aux hooks React, avec useState pour suivre l'état des champs du formulaire, les cocktails sélectionnés, et les messages d'erreur éventuels.
+ Les données des cocktails sont récupérées du serveur via cocktailService et affichées dans la liste déroulante.
+Les fonctions onChange et onSelectCocktail sont définies pour mettre à jour les états locaux en réponse aux changements dans les champs du formulaire, garantissant une expérience utilisateur interactive. 
+La fonction onSubmit est déclenchée lors de la soumission du formulaire, effectue une validation des champs requis, puis envoie les données au serveur via formuleService.addFormule. 
+En cas d'erreur, un message d'erreur est affiché, offrant une expérience utilisateur informatif et fluide.
+En résumé, ce composant combine une conception réactive avec une gestion sophistiquée des états, offrant une expérience utilisateur robuste pour l'ajout de formules,
+ tout en interagissant de manière transparente avec les services backend dédiés.
+ **IMAGE(formuleAddReturn1)**
+
+ FONCTIONALITE LA PLUS REPRESENTATIVE : LA RESERVATION
+
+La création du composant "Calendrier" dédié à la gestion des réservations a représenté un défi significatif, nécessitant la mise en œuvre d'une logique complexe associée à la sélection de dates et d'heures disponibles.
+J ai des difficultés à intègrer des fonctionnalités avancées, telles que la désactivation dynamique des plages horaires déjà réservées et la gestion du nombre total de personnes pour chaque créneau horaire.
+La difficulté a résidé dans la nécessité de filtrer les plages horaires disponibles en fonction des réservations existantes, tout en respectant la contrainte du nombre maximal de personnes par créneau horaire. 
+La logique de sélection et de désélection des horaires disponibles, ainsi que la communication avec le backend pour la création effective de la réservation, ont ajouté des niveaux de complexité au développement.
+Le composant intègre également un formulaire de réservation avec une interface utilisateur,où les utilisateurs peuvent saisir leurs informations personnelles.
+ La gestion des états, l'interaction avec le calendrier, et la coordination avec le service de réservation ont nécessité une approche méticuleuse pour garantir une expérience utilisateur fluide et fiable.
+Malgré les défis rencontrés, le résultat final offre une solution adequate pour la gestion des réservations, 
+fournissant aux utilisateurs une interface conviviale pour choisir des dates et heures disponibles, tout en respectant les contraintes de capacité.
+La persévérance dans la résolution de ces défis témoigne de la patience et de la détermination dans la création d'une fonctionnalité cruciale pour l'application.
+1/diagramme de sequence 
+**IMAGE(ds)**
+
+-----------------------
+2/le composant Calendrier.js
+----------------------------
+Le composant "Calendrier" que j'ai développé pour la gestion des réservations représente une solution pour permettre aux utilisateurs de planifier leurs reseravation.
+J ai crée "Calendrier.js" avec l'intégration de la bibliothèque react-calendar pour faciliter la sélection des dates.
+La première étape de ce composant est la gestion de l'état de la date, qui comprend la date seule (justDate) et la date avec l'heure (dateTime).
+J'utilise la fonction add de la bibliothèque date-fns pour initialiser la date avec une heure de début par défaut à 8 heures.
+Ensuite, le composant offre une fonction getTimes qui génère les créneaux horaires disponibles pour la date sélectionnée. 
+Cette fonction crée une liste de plages horaires entre 8 heures et 18 heures avec des intervalles de 45 minutes.
+Ces plages horaires sont ensuite filtrées pour exclure celles qui ont déjà atteint la capacité maximale de réservation (12 personnes).
+La création d'une réservation est gérée par la fonction createReservation.
+ Cette fonction effectue des vérifications, telles que l'existence de la date et de l'heure sélectionnées, et s'assure que le nombre total de personnes pour la plage horaire sélectionnée ne dépasse pas la limite de 12 personnes. 
+ En cas de succès, elle envoie les détails de la réservation au service approprié via Axios, réinitialise les détails de la réservation, met à jour les créneaux horaires réservés, 
+ et signale que la réservation a été créée avec succès.
+Enfin, le composant intègre un formulaire de réservation avec des champs pour le nom, le prénom, le téléphone, l'e-mail, le nombre de personnes, et un message optionnel.
+ Les utilisateurs peuvent également sélectionner l'heure de leur choix parmi les créneaux disponibles.
+Une fois la réservation créée, le composant affiche un message de confirmation.
+**IMAGE(getTimes)**
+La fonction getTimes est responsable de générer les plages horaires disponibles pour la réservation en fonction de la date sélectionnée.:
+a/const  justDate:   extrait la propriété justDate de l'objet date, représentant la date sélectionnée dans le composant.
+b/const beginning : défini les bornes horaires de début et de fin pour les plages horaires disponibles,
+     fixant la plage horaire de 8 heures du matin à 18 heures du soir.
+c/const interval: Cela spécifie l'intervalle de temps entre chaque créneau horaire, en minutes.
+d/const times: Cette boucle for crée un tableau times contenant toutes les plages horaires entre les bornes de début et de fin, 
+    avec un intervalle de 45 minutes.
+e/const filteredTimes : Cette fonction utilise la fonction filter pour exclure les plages horaires qui ne satisfont pas certaines conditions.
+f/const timeKey : Ici, chaque plage horaire est formatée pour obtenir une clé sous forme de chaîne représentant l'heure (HH) et les minutes (mm).
+g/const reservationsAtThisTime:Cela filtre les réservations existantes pour la date et l'heure spécifiques de la plage horaire actuelle.
+h/const totalPersonsAtThisTime : Cette fonction utilise la fonction reduce pour calculer le nombre total de personnes réservées à cette date et heure spécifiques en additionnant le nombre de personnes de chaque réservation.
+i/return totalPersonsAtThisTime: Enfin, la fonction renvoie true si le nombre total de personnes pour cette plage horaire est inférieur ou égal à 12, indiquant qu'il reste des places disponibles, sinon elle renvoie false.
+En résumé, cette fonction génère dynamiquement les plages horaires disponibles en fonction de la date sélectionnée tout en prenant en compte les réservations existantes et en s'assurant que le nombre total de personnes pour chaque créneau horaire
+ ne dépasse pas la limite de 12 personnes.
+
+ LA SECURITE
+En ce qui concerne la sécurité, je vais aborder le sujet de l'authentification.
+Dans le modéle User j ai essayé mettre en oeuvre certaines bonnes pratiques de securité liées à la gestion des utilisateurs et des mots de passe.
+**IMAGE(userSecu)**
+Voici une explication des éléments de sécurité implémentés dans mon code :
+
+a*/Validation d'email :
+Le modèle Sequelize inclut une validation pour s'assurer que l'adresse e-mail est au format valide.
+Cela est réalisé à l'aide de la propriété validate avec la règle isEmail. 
+Cela contribue à garantir que seules des adresses e-mail valides sont acceptées, réduisant ainsi les risques d'injection de données malveillantes.
+
+b*/Hachage de mot de passe :
+Le code utilise la bibliothèque bcrypt pour hacher les mots de passe avant de les stocker en base de données. 
+Cela est effectué dans le beforeCreate hook de Sequelize, qui est déclenché avant la création d'une nouvelle instance d'utilisateur.
+Le mot de passe fourni par l'utilisateur est haché avec une salinité (nombre de tours) définie dans la variable d'environnement BCRYPT_SALT_ROUND.
+ Cette pratique renforce la sécurité en stockant des hachages irréversibles des mots de passe plutôt que les mots de passe en texte brut.
+
+c*/Contrainte de format de mot de passe :
+Une contrainte est appliquée au format du mot de passe en utilisant la propriété is avec une expression régulière. 
+Dans cet exemple, la contrainte vérifie si le mot de passe est une chaîne hexadécimale de 64 caractères.
+Cela peut être ajusté en fonction des exigences spécifiques du projet.
+
+d*/Soft Delete :
+Le modèle Sequelize est configuré avec paranoid: true, ce qui implémente une suppression  (soft delete). 
+Plutôt que de supprimer physiquement les enregistrements, cette approche marque les enregistrements comme supprimés en ajoutant une date de suppression (deletedAt).
+ Cela peut aider à maintenir une trace de l'historique des utilisateurs et à récupérer des données supprimées en cas de besoin.
+
+Vérification du mot de passe :
+La méthode statique checkPassword est ajoutée au modèle pour faciliter la vérification des mots de passe.
+Elle utilise bcrypt.compare pour comparer un mot de passe en texte brut avec un mot de passe haché. Cela garantit que la vérification du mot de passe est sécurisée et simplifie l'implémentation côté application.
+
+Ces mesures contribuent à renforcer la sécurité globale de la gestion des utilisateurs dans une application.
+
+Aprés j ai créer le fichier auth.js dans le dossier "controllers"
+**IMAGE(authCtrl)**
+Voici l explication:
+a*/Validation des données d'entrée :
+Le code commence par vérifier la présence d'une adresse e-mail et d'un mot de passe dans la requête.
+ Si l'un ou l'autre est manquant, une réponse avec le statut HTTP 400 (Bad Request) est renvoyée. 
+ Cette vérification préliminaire contribue à éviter les erreurs de traitement des données et à améliorer la sécurité.
+
+b*/Protection contre les attaques par force brute :
+La vérification de l'existence de l'utilisateur se fait avant de vérifier le mot de passe.
+Si l'utilisateur n'existe pas, le code renvoie une réponse avec le statut HTTP 401 (Unauthorized).
+Cela aide à éviter les attaques par force brute où un attaquant pourrait essayer plusieurs combinaisons de noms d'utilisateur et de mots de passe.
+
+c*/Utilisation de JWT (JSON Web Token) pour l'authentification :
+Après avoir vérifié l'utilisateur et son mot de passe, le code utilise le module jsonwebtoken pour générer un token JWT.
+Ce token contient des informations spécifiques à l'utilisateur (id, nom, prénom, e-mail) et est signé avec une clé secrète (process.env.JWT_SECRET). La durée de validité du token est spécifiée par expiresIn.
+ L'utilisation de JWT offre une méthode sécurisée pour gérer l'authentification.
+
+d*/Gestion des erreurs :
+En cas d'erreur liée à la base de données (SequelizeDatabaseError), le serveur renvoie une réponse avec le statut HTTP 500 (Internal Server Error).
+ De même, pour toute autre erreur, le code renvoie également une réponse HTTP 500 avec un message d'erreur approprié.
+  Cela contribue à éviter la divulgation d'informations sensibles en cas d'échec du processus d'authentification.
+
+e*/Sécurité contre les attaques par injection :
+En utilisant Sequelize pour interagir avec la base de données, le code réduit le risque d'attaques par injection SQL.
+ Les requêtes SQL sont générées de manière sécurisée, minimisant ainsi les vulnérabilités associées à ces types d'attaques.
+
+ Ensuite dans le dossier routes j ai crée le fichier auth.js
+ **IMAGE(routeAuth)**
+Voici une analyse des aspects liés à la sécurité dans ce code :
+a*/Middleware Helmet : j'ai utilisé le middleware Helmet pour sécuriser l'application. 
+Helmet est un ensemble de middlewares qui configurent automatiquement divers en-têtes HTTP pour renforcer la sécurité.
+Par exemple, l'en-tête Content Security Policy (CSP) est configuré pour restreindre l'exécution de scripts malveillants, 
+l'en-tête Strict-Transport-Security (HSTS) assure une connexion sécurisée via HTTPS, et d'autres en-têtes aident à prévenir certaines vulnérabilités.
+
+b*/Enregistrement du temps de connexion : j ai crée middleware personnalisé qui enregistre l'heure de chaque requête d'authentification dans la console.
+ Bien que cela ne soit pas directement lié à la sécurité, cela peut être utile à des fins de surveillance ou de débogage pour comprendre quand les connexions ont lieu.
+
+c*/Route d'authentification (/login) : La  route crée est celle de l'authentification .
+ La fonction associée (authCtrl.login) est responsable de vérifier les informations d'identification de l'utilisateur (e-mail et mot de passe) 
+ et de générer un jeton JWT (JSON Web Token) s'il est valide.
+  L'utilisation de JWT est courante pour l'authentification, mais il est important de s'assurer que cette mise en œuvre est sécurisée et ne présente pas de vulnérabilités connues.
+Dans l'ensemble, le code montre un engagement envers la sécurité en utilisant le middleware Helmet, qui aide à prévenir diverses attaques en configurant correctement les en-têtes HTTP. 
+
+Apres  j ai crée un dossier que j ai nommé "jsonwebtoken" qui contient un dossier "check.js" 
+Dans ce code j implémente un middleware pour garantir la securité 
+voici une petite exploration de ce middleware:
+**IMAGE(envSecu)** &&  **IMAGE(check)**
+a*/Vérification du format du jeton :La fonction extractBearer vérifie si le format du jeton d'authentification est correct.
+ Elle s'assure que l'en-tête d'autorisation suit le schéma "Bearer Token" en extrayant le jeton de la chaîne. 
+ Cela renforce la sécurité en s'assurant que le jeton est correctement formaté.
+
+b*/Middleware de vérification du jeton (checkTokenMiddleware) : Ce middleware est destiné à être utilisé pour protéger certaines routes en s'assurant qu'un jeton JWT valide est présent dans l'en-tête d'autorisation de la requête.
+ S'il ne trouve pas de jeton, il renvoie une réponse 401 (Non autorisé) avec le message "no way :p !!!". 
+ Si le jeton est présent mais n'est pas valide (par exemple, s'il a expiré ou s'il n'a pas pu être vérifié avec la clé secrète JWT),
+  le middleware renvoie également une réponse 401 avec le message "Bad token". Sinon, il appelle next(), permettant à la requête de se poursuivre.
+
+c*/Utilisation de JWT : Le code utilise le module jsonwebtoken pour vérifier la validité du jeton JWT. 
+Il utilise une clé secrète (process.env.JWT_SECRET) pour vérifier la signature du jeton, ce qui est crucial pour garantir l'intégrité du jeton.
+En résumé, seules les requêtes munies d'un jeton JWT valide sont autorisées à accéder aux ressources protégées. 
+La vérification du format du jeton et l'utilisation de la vérification JWT contribuent à prévenir les attaques d'usurpation de jeton et à garantir une authentification sécurisée.
+
+et pour finir il me reste qu a sécurise  la route pour les utilisateurs en s'assurant que seuls les utilisateurs authentifiés avec un jeton valide peuvent accéder aux fonctionnalités sous le chemin "/users". 
+Cela renforce la sécurité en restreignant l'accès aux ressources sensibles à ceux qui ont été correctement authentifiés.
+**IMAGE(serveSecu)**
+Dans le cote Front j ai crée le composant Login.js pour le formulaire de l authentification
+**IMAGE(loginFront)**
+Pour améliorer la securité j ai utilisé les attributs "autoComplete" et "minLength" pour renforcer la protection des champs d'identifiant et de mot de passe dans le formulaire de connexion.
+ L'attribut autoComplete est configuré avec des valeurs spécifiques, à savoir 'username' pour le champ d'identifiant et 'current-password' pour le champ de mot de passe.
+  Cela permet au navigateur de suggérer des valeurs d'auto-complétion appropriées, ce qui peut renforcer la sécurité en évitant que des informations sensibles soient stockées dans le cache du navigateur.
+De plus, l'attribut minLength est utilisé pour spécifier que le champ du mot de passe doit contenir au moins six caractères.
+ Cela renforce la politique de complexité du mot de passe, exigeant un minimum de caractères, ce qui contribue à augmenter la robustesse du système d'authentification.
+  Ces mesures côté client n'éliminent pas la nécessité de validations et de sécurités côté serveur, mais elles ajoutent une couche de protection supplémentaire au niveau de l'interface utilisateur.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
